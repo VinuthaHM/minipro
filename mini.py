@@ -19,3 +19,10 @@ print("LR MSE(test)" , lr_test_mse)
 print("LR r2(test)", lr_test_r2)
 lr_results=pd.DataFrame(["Linear regression" , lr_train_mse,lr_train_r2,lr_test_mse,lr_test_r2]).transpose()#forming dataframe for mean square and r2
 lr_results.columns=["methods","training mse","training r2","testing mse","testing r2"]#changing the columns name
+import matplotlib.pyplot as plt
+plt.figure(figsize=(15,10))
+plt.scatter(y_test,y_pred)
+plt.xlabel("Actual")
+plt.ylabel("predicted")
+plt.title("Actual vs predicted")
+pred_y_df=pd.DataFrame({'Actual value':y_test,'predicted value':y_pred,'difference':y_test-y_pred})
